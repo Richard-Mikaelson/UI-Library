@@ -306,7 +306,7 @@ function IceHub.CreateMain(gameName, subtitle)
     MenuPage.CanvasSize = UDim2.new(0, 0, 2.9, 0)
     MenuPage.ScrollBarThickness = 0
     MenuPage.Visible = true
-    MenuPage.ScrollingEnabled = false
+    MenuPage.ScrollingEnabled = true
     MenuPage.ScrollingDirection = Enum.ScrollingDirection.Y
     table.insert(activePages, MenuPage)
     menuPageLayout.Parent = MenuPage
@@ -581,6 +581,41 @@ function IceHub.CreateMain(gameName, subtitle)
     menuPagePadding.Parent = MenuPage
     menuPagePadding.PaddingLeft = UDim.new(0, 5)
     menuPagePadding.PaddingTop = UDim.new(0, 5)
+    local ButtonFrame = Instance.new("Frame")
+    ButtonFrame.Name = "ButtonFrame"
+    ButtonFrame.Parent = MenuPage
+    ButtonFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    ButtonFrame.BackgroundTransparency = 0.5
+    ButtonFrame.Size = UDim2.new(0, 285, 0, 40)
+    local bfCorner = Instance.new("UICorner", ButtonFrame); bfCorner.CornerRadius = UDim.new(0, 4)
+
+    local RejoinButton = Instance.new("TextButton", ButtonFrame)
+    RejoinButton.Size = UDim2.new(0, 135, 0, 30)
+    RejoinButton.Position = UDim2.new(0.02, 0, 0.12, 0)
+    RejoinButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    RejoinButton.Text = "Rejoin"
+    RejoinButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    RejoinButton.Font = Enum.Font.Gotham
+    RejoinButton.TextSize = 12
+    RejoinButton.AutoButtonColor = false
+    Instance.new("UICorner", RejoinButton).CornerRadius = UDim.new(0, 4)
+    RejoinButton.MouseButton1Click:Connect(function()
+        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+    end)
+
+    local HopButton = Instance.new("TextButton", ButtonFrame)
+    HopButton.Size = UDim2.new(0, 135, 0, 30)
+    HopButton.Position = UDim2.new(0.51, 0, 0.12, 0)
+    HopButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    HopButton.Text = "Server-Hop"
+    HopButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    HopButton.Font = Enum.Font.Gotham
+    HopButton.TextSize = 12
+    HopButton.AutoButtonColor = false
+    Instance.new("UICorner", HopButton).CornerRadius = UDim.new(0, 4)
+    HopButton.MouseButton1Click:Connect(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Richard-Mikaelson/Server-Hop/refs/heads/main/Source.lua"))():Teleport(game.PlaceId)
+    end)
     TutorialPage.Name = "TutorialPage"
     TutorialPage.Parent = FrameFolder
     TutorialPage.Active = true
