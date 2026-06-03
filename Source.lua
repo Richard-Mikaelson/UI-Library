@@ -1,3 +1,4 @@
+print("anyad")
 local IceHub = {}
 local config = loadstring(game:HttpGet("https://raw.githubusercontent.com/Richard-Mikaelson/UI-Library-Config/refs/heads/main/Source.lua"))()
 local gameMode = nil
