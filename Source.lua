@@ -563,6 +563,129 @@ function IceHub.CreateMain(gameName, subtitle)
             setclipboard("https://discord.com/invite/")
         end)
     end)
+    local ServerButtonsFrame = Instance.new("Frame")
+    local serverButtonsCorner = Instance.new("UICorner")
+    local serverButtonsStroke = Instance.new("UIStroke")
+    local RejoinButton = Instance.new("TextButton")
+    local rejoinCorner = Instance.new("UICorner")
+    local rejoinStroke = Instance.new("UIStroke")
+    local ServerHopButton = Instance.new("TextButton")
+    local serverHopCorner = Instance.new("UICorner")
+    local serverHopStroke = Instance.new("UIStroke")
+    
+    ServerButtonsFrame.Name = "ServerButtonsFrame"
+    ServerButtonsFrame.Parent = MenuPage
+    ServerButtonsFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    ServerButtonsFrame.BackgroundTransparency = 0.5
+    ServerButtonsFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
+    ServerButtonsFrame.Size = UDim2.new(0, 285, 0, 50)
+    ServerButtonsFrame.LayoutOrder = 2
+    
+    serverButtonsCorner.CornerRadius = UDim.new(0, 4)
+    serverButtonsCorner.Parent = ServerButtonsFrame
+    
+    serverButtonsStroke.Color = Color3.fromRGB(39, 39, 39)
+    serverButtonsStroke.Thickness = 0.8
+    serverButtonsStroke.Parent = ServerButtonsFrame
+    
+    RejoinButton.Name = "Rejoin"
+    RejoinButton.Parent = ServerButtonsFrame
+    RejoinButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    RejoinButton.BackgroundTransparency = 0.2
+    RejoinButton.BorderColor3 = Color3.fromRGB(20, 20, 20)
+    RejoinButton.Position = UDim2.new(0, 8, 0, 10)
+    RejoinButton.Size = UDim2.new(0, 130, 0, 30)
+    RejoinButton.AutoButtonColor = false
+    RejoinButton.Font = Enum.Font.Gotham
+    RejoinButton.Text = "Rejoin"
+    RejoinButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    RejoinButton.TextSize = 13
+    
+    rejoinCorner.CornerRadius = UDim.new(0, 4)
+    rejoinCorner.Parent = RejoinButton
+    
+    rejoinStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    rejoinStroke.Color = Color3.fromRGB(49, 49, 49)
+    rejoinStroke.Transparency = 0.2
+    rejoinStroke.Parent = RejoinButton
+    
+    RejoinButton.MouseEnter:Connect(function()
+        tweenService:Create(RejoinButton, TweenInfo.new(0.15), {BackgroundTransparency = 0.1}):Play()
+    end)
+    RejoinButton.MouseLeave:Connect(function()
+        tweenService:Create(RejoinButton, TweenInfo.new(0.15), {BackgroundTransparency = 0.2}):Play()
+    end)
+    RejoinButton.MouseButton1Click:Connect(function()
+        game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+    end)
+    
+    ServerHopButton.Name = "ServerHop"
+    ServerHopButton.Parent = ServerButtonsFrame
+    ServerHopButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    ServerHopButton.BackgroundTransparency = 0.2
+    ServerHopButton.BorderColor3 = Color3.fromRGB(20, 20, 20)
+    ServerHopButton.Position = UDim2.new(0, 147, 0, 10)
+    ServerHopButton.Size = UDim2.new(0, 130, 0, 30)
+    ServerHopButton.AutoButtonColor = false
+    ServerHopButton.Font = Enum.Font.Gotham
+    ServerHopButton.Text = "Server-Hop"
+    ServerHopButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+    ServerHopButton.TextSize = 13
+    
+    serverHopCorner.CornerRadius = UDim.new(0, 4)
+    serverHopCorner.Parent = ServerHopButton
+    
+    serverHopStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    serverHopStroke.Color = Color3.fromRGB(49, 49, 49)
+    serverHopStroke.Transparency = 0.2
+    serverHopStroke.Parent = ServerHopButton
+    
+    ServerHopButton.MouseEnter:Connect(function()
+        tweenService:Create(ServerHopButton, TweenInfo.new(0.15), {BackgroundTransparency = 0.1}):Play()
+    end)
+    ServerHopButton.MouseLeave:Connect(function()
+        tweenService:Create(ServerHopButton, TweenInfo.new(0.15), {BackgroundTransparency = 0.2}):Play()
+    end)
+    ServerHopButton.MouseButton1Click:Connect(function()
+        task.spawn(function()
+            local ok, IceHub = pcall(function()
+                return loadstring(game:HttpGet("https://raw.githubusercontent.com/Richard-Mikaelson/Server-Hop/refs/heads/main/Source.lua", true))()
+            end)
+            if ok and IceHub and type(IceHub.ServerHop) == "function" then
+                IceHub:ServerHop()
+            else
+                local TeleportService = game:GetService("TeleportService")
+                local HttpService = game:GetService("HttpService")
+                local placeId = game.PlaceId
+                local currentJobId = game.JobId
+                local cursor = ""
+                local targetId = nil
+                repeat
+                    local data = HttpService:JSONDecode(game:HttpGet(
+                        string.format("https://games.roblox.com/v1/games/%d/servers/Public?sortOrder=Asc&limit=100&cursor=%s", placeId, cursor),
+                        true
+                    ))
+                    cursor = data.nextPageCursor or ""
+                    for _, server in ipairs(data.data or {}) do
+                        if server.id ~= currentJobId and server.playing < server.maxPlayers then
+                            targetId = server.id
+                            break
+                        end
+                    end
+                until targetId ~= nil or cursor == ""
+                if targetId then
+                    TeleportService:TeleportToPlaceInstance(placeId, targetId, game.Players.LocalPlayer)
+                else
+                    TeleportService:Teleport(placeId, game.Players.LocalPlayer)
+                end
+            end
+        end)
+    end)
+    
+    menuPageLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+        MenuPage.CanvasSize = UDim2.new(0, 0, 0, menuPageLayout.AbsoluteContentSize.Y + 10)
+    end)
+    MenuPage.CanvasSize = UDim2.new(0, 0, 0, menuPageLayout.AbsoluteContentSize.Y + 10)
     discordCorner.CornerRadius = UDim.new(0, 4)
     discordCorner.Parent = Discord
     discordStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
