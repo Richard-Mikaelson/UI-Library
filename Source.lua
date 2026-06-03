@@ -303,7 +303,7 @@ function IceHub.CreateMain(gameName, subtitle)
     MenuPage.BorderColor3 = Color3.fromRGB(30, 30, 30)
     MenuPage.Position = UDim2.new(0.266000002, 0, 0.159999996, 0)
     MenuPage.Size = UDim2.new(0, 303, 0, 170)
-    MenuPage.CanvasSize = UDim2.new(0, 0, 2.9, 0)
+    MenuPage.CanvasSize = UDim2.new(0, 0, 0, MenuPage.UIListLayoutM1.AbsoluteContentSize.Y + 20)
     MenuPage.ScrollBarThickness = 0
     MenuPage.Visible = true
     MenuPage.ScrollingEnabled = true
@@ -586,36 +586,44 @@ function IceHub.CreateMain(gameName, subtitle)
     ButtonFrame.Parent = MenuPage
     ButtonFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     ButtonFrame.BackgroundTransparency = 0.5
-    ButtonFrame.Size = UDim2.new(0, 285, 0, 40)
+    ButtonFrame.Size = UDim2.new(0, 285, 0, 45)
+    ButtonFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
     local bfCorner = Instance.new("UICorner", ButtonFrame); bfCorner.CornerRadius = UDim.new(0, 4)
+    local bfStroke = Instance.new("UIStroke", ButtonFrame)
+    bfStroke.Color = Color3.fromRGB(39, 39, 39); bfStroke.Thickness = 0.8; bfStroke.Transparency = 0.4
 
     local RejoinButton = Instance.new("TextButton", ButtonFrame)
     RejoinButton.Size = UDim2.new(0, 135, 0, 30)
-    RejoinButton.Position = UDim2.new(0.02, 0, 0.12, 0)
-    RejoinButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    RejoinButton.Position = UDim2.new(0.025, 0, 0.15, 0)
+    RejoinButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     RejoinButton.Text = "Rejoin"
     RejoinButton.TextColor3 = Color3.fromRGB(255, 255, 255)
     RejoinButton.Font = Enum.Font.Gotham
     RejoinButton.TextSize = 12
     RejoinButton.AutoButtonColor = false
     Instance.new("UICorner", RejoinButton).CornerRadius = UDim.new(0, 4)
+    local rjStroke = Instance.new("UIStroke", RejoinButton)
+    rjStroke.Color = Color3.fromRGB(49, 49, 49); rjStroke.Transparency = 0.2
     RejoinButton.MouseButton1Click:Connect(function()
         game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
     end)
 
     local HopButton = Instance.new("TextButton", ButtonFrame)
     HopButton.Size = UDim2.new(0, 135, 0, 30)
-    HopButton.Position = UDim2.new(0.51, 0, 0.12, 0)
-    HopButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    HopButton.Position = UDim2.new(0.505, 0, 0.15, 0)
+    HopButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     HopButton.Text = "Server-Hop"
     HopButton.TextColor3 = Color3.fromRGB(255, 255, 255)
     HopButton.Font = Enum.Font.Gotham
     HopButton.TextSize = 12
     HopButton.AutoButtonColor = false
     Instance.new("UICorner", HopButton).CornerRadius = UDim.new(0, 4)
+    local hopStroke = Instance.new("UIStroke", HopButton)
+    hopStroke.Color = Color3.fromRGB(49, 49, 49); hopStroke.Transparency = 0.2
     HopButton.MouseButton1Click:Connect(function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Richard-Mikaelson/Server-Hop/refs/heads/main/Source.lua"))():Teleport(game.PlaceId)
     end)
+    
     TutorialPage.Name = "TutorialPage"
     TutorialPage.Parent = FrameFolder
     TutorialPage.Active = true
