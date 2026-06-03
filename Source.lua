@@ -1,4 +1,3 @@
-print("anyad")
 local IceHub = {}
 local config = loadstring(game:HttpGet("https://raw.githubusercontent.com/Richard-Mikaelson/UI-Library-Config/refs/heads/main/Source.lua"))()
 local gameMode = nil
@@ -314,74 +313,6 @@ function IceHub.CreateMain(gameName, subtitle)
     menuPageLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
     menuPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
     menuPageLayout.Padding = UDim.new(0, 5)
-    local ExtraButtons = Instance.new("Frame")
-    ExtraButtons.Name = "ExtraButtons"
-    ExtraButtons.Parent = LocalFrame
-    ExtraButtons.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-    ExtraButtons.BorderSizePixel = 0
-    ExtraButtons.Size = UDim2.new(1, 0, 0, 90)
-    
-    local ExtraCorner = Instance.new("UICorner")
-    ExtraCorner.CornerRadius = UDim.new(0, 6)
-    ExtraCorner.Parent = ExtraButtons
-    
-    local ExtraStroke = Instance.new("UIStroke")
-    ExtraStroke.Color = Color3.fromRGB(60, 60, 60)
-    ExtraStroke.Thickness = 1
-    ExtraStroke.Parent = ExtraButtons
-    
-    local ExtraLayout = Instance.new("UIListLayout")
-    ExtraLayout.Parent = ExtraButtons
-    ExtraLayout.FillDirection = Enum.FillDirection.Vertical
-    ExtraLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-    ExtraLayout.VerticalAlignment = Enum.VerticalAlignment.Top
-    ExtraLayout.Padding = UDim.new(0, 6)
-    
-    local function CreateStyledButton(Name, Text)
-        local Btn = Instance.new("TextButton")
-        Btn.Name = Name
-        Btn.Parent = ExtraButtons
-        Btn.Size = UDim2.new(0.95, 0, 0, 35)
-        Btn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-        Btn.Text = Text
-        Btn.TextColor3 = Color3.fromRGB(220, 220, 220)
-        Btn.Font = Enum.Font.GothamSemibold
-        Btn.TextSize = 14
-        Btn.AutoButtonColor = false
-    
-        local BtnCorner = Instance.new("UICorner")
-        BtnCorner.CornerRadius = UDim.new(0, 5)
-        BtnCorner.Parent = Btn
-    
-        local BtnStroke = Instance.new("UIStroke")
-        BtnStroke.Color = Color3.fromRGB(70, 70, 70)
-        BtnStroke.Thickness = 1
-        BtnStroke.Parent = Btn
-    
-        return Btn
-    end
-    
-    local RejoinBtn = CreateStyledButton("RejoinButton", "Rejoin")
-    RejoinBtn.MouseButton1Click:Connect(function()
-        local TeleportService = game:GetService("TeleportService")
-        local Players = game:GetService("Players")
-        local Player = Players.LocalPlayer
-    
-        TeleportService:Teleport(game.PlaceId, Player)
-    end)
-    
-    local HopBtn = CreateStyledButton("ServerHopButton", "Server-Hop")
-    HopBtn.MouseButton1Click:Connect(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Richard-Mikaelson/Server-Hop/refs/heads/main/Source.lua"))()
-    end)
-    
-    local function UpdateCanvas()
-        MenuPage.CanvasSize = UDim2.new(0, 0, 0, UIListLayout.AbsoluteContentSize.Y + 20)
-    end
-    
-    UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(UpdateCanvas)
-    UpdateCanvas()
-
     local menuButton = Instance.new("TextButton")
     local menuButtonCorner = Instance.new("UICorner")
     local menuButtonStroke = Instance.new("UIStroke")
