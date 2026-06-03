@@ -1,5 +1,5 @@
 local IceHub = {}
-local config = loadstring(game:HttpGet("https://raw.githubusercontent.com/Richard-Salvatore/IceHub-UI-Library-Config/refs/heads/main/Source.lua"))()
+local config = loadstring(game:HttpGet("https://raw.githubusercontent.com/Richard-Mikaelson/UI-Library-Config/refs/heads/main/Source.lua"))()
 local gameMode = nil
 local isChristmas = config._event_connection._CHRISTMAS_CONNECTION._christmas
 local isHalloween = config._event_connection._HALLOWEEN_CONNECTION._halloween
