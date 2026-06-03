@@ -579,7 +579,7 @@ function IceHub.CreateMain(gameName, subtitle)
     ServerButtonsFrame.BackgroundTransparency = 0.5
     ServerButtonsFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
     ServerButtonsFrame.Size = UDim2.new(0, 285, 0, 50)
-    ServerButtonsFrame.LayoutOrder = 0
+    ServerButtonsFrame.LayoutOrder = 2
     
     ServerButtonsCorner.CornerRadius = UDim.new(0, 4)
     ServerButtonsCorner.Parent = ServerButtonsFrame
@@ -617,7 +617,7 @@ function IceHub.CreateMain(gameName, subtitle)
         tweenService:Create(RejoinButton, TweenInfo.new(0.15), {BackgroundTransparency = 0.2}):Play()
     end)
     RejoinButton.MouseButton1Click:Connect(function()
-        game:GetService("TeleportService"):Teleport(game.PlaceId, game.Players.LocalPlayer)
+        game:GetService("TeleportService"):Teleport(game.PlaceId, game.JobId, game.Players.LocalPlayer)
     end)
     
     ServerHopButton.Name = "ServerHop"
