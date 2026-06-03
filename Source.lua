@@ -581,38 +581,6 @@ function IceHub.CreateMain(gameName, subtitle)
     menuPagePadding.Parent = MenuPage
     menuPagePadding.PaddingLeft = UDim.new(0, 5)
     menuPagePadding.PaddingTop = UDim.new(0, 5)
-    local TeleportService = game:GetService("TeleportService")
-    local Players = game:GetService("Players")
-    
-    local TeleportFrame = Instance.new("Frame")
-    TeleportFrame.Parent = MenuPage.ScrollingFrame
-    TeleportFrame.BackgroundTransparency = 1
-    TeleportFrame.Size = UDim2.new(1, 0, 0, 90)
-    
-    local Rejoin = Instance.new("TextButton")
-    Rejoin.Parent = TeleportFrame
-    Rejoin.Size = UDim2.new(1, -10, 0, 40)
-    Rejoin.Position = UDim2.new(0, 5, 0, 0)
-    Rejoin.Text = "Rejoin"
-    
-    local ServerHop = Instance.new("TextButton")
-    ServerHop.Parent = TeleportFrame
-    ServerHop.Size = UDim2.new(1, -10, 0, 40)
-    ServerHop.Position = UDim2.new(0, 5, 0, 45)
-    ServerHop.Text = "Server Hop"
-    
-    Rejoin.MouseButton1Click:Connect(function()
-    	TeleportService:Teleport(game.PlaceId, Players.LocalPlayer)
-    end)
-    
-    ServerHop.MouseButton1Click:Connect(function()
-    	loadstring(game:HttpGet("https://raw.githubusercontent.com/Richard-Mikaelson/Server-Hop/refs/heads/main/Source.lua"))()
-    end)
-    
-    local layout = MenuPage.ScrollingFrame:FindFirstChildOfClass("UIListLayout")
-    layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
-    	MenuPage.ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y)
-    end)
     TutorialPage.Name = "TutorialPage"
     TutorialPage.Parent = FrameFolder
     TutorialPage.Active = true
