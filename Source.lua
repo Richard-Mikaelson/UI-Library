@@ -371,7 +371,7 @@ function IceHub.CreateMain(gameName, subtitle)
         }):Play()
         MenuPage.Visible = true
     end)
-    LocalFrame.Name = "LocalFrame"
+     LocalFrame.Name = "LocalFrame"
     LocalFrame.Parent = MenuPage
     LocalFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     LocalFrame.BackgroundTransparency = 0.5
@@ -385,7 +385,7 @@ function IceHub.CreateMain(gameName, subtitle)
     PlayerImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     PlayerImageLabel.BackgroundTransparency = 1
     PlayerImageLabel.Position = UDim2.new(0.0419999994, 0, 0.0960000008, 0)
-    PlayerImageLabel.Size = UDim2.new(0, 75, 0, 75)
+    PlayerImageLabel.Size = UDim2.new(0, 100, 0, 100)
     if avatarHidden then
         task.spawn(function()
             PlayerImageLabel.Image = ""
@@ -408,7 +408,7 @@ function IceHub.CreateMain(gameName, subtitle)
     NameLabel.BackgroundTransparency = 0.3
     NameLabel.BorderColor3 = Color3.fromRGB(20, 20, 20)
     NameLabel.Position = UDim2.new(0.424561411, 0, 0.0960000008, 0)
-    NameLabel.Size = UDim2.new(0, 185, 0, 25)
+    NameLabel.Size = UDim2.new(0, 155, 0, 30)
     NameLabel.Font = Enum.Font.SourceSans
     if usernameHidden ~= false then
         if usernameHidden then
@@ -434,8 +434,8 @@ function IceHub.CreateMain(gameName, subtitle)
     Discord.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     Discord.BackgroundTransparency = 0.3
     Discord.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    Discord.Position = UDim2.new(0.32, 0, 0.376, 0)
-    Discord.Size = UDim2.new(0, 185, 0, 25)
+    Discord.Position = UDim2.new(0.424561381, 0, 0.375999987, 0)
+    Discord.Size = UDim2.new(0, 155, 0, 30)
     Discord.AutoButtonColor = false
     Discord.Font = Enum.Font.SourceSans
     Discord.Text = "Join Discord"
@@ -465,42 +465,6 @@ function IceHub.CreateMain(gameName, subtitle)
                 httpRequest(requestData)
             end
         end)
-        local RejoinButton = Instance.new("TextButton")
-        RejoinButton.Name = "RejoinButton"
-        RejoinButton.Parent = LocalFrame
-        RejoinButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-        RejoinButton.BackgroundTransparency = 0.3
-        RejoinButton.BorderColor3 = Color3.fromRGB(20, 20, 20)
-        RejoinButton.Position = UDim2.new(0.32, 0, 0.65, 0)
-        RejoinButton.Size = UDim2.new(0, 90, 0, 25)
-        RejoinButton.Font = Enum.Font.SourceSans
-        RejoinButton.Text = "Rejoin"
-        RejoinButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        RejoinButton.TextSize = 12
-        RejoinButton.MouseButton1Click:Connect(function()
-            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
-        end)
-        local rjCorner = Instance.new("UICorner", RejoinButton); rjCorner.CornerRadius = UDim.new(0, 4)
-        local rjStroke = Instance.new("UIStroke", RejoinButton); rjStroke.Color = Color3.fromRGB(39, 39, 39); rjStroke.Thickness = 0.8; rjStroke.Transparency = 0.4
-
-        local HopButton = Instance.new("TextButton")
-        HopButton.Name = "HopButton"
-        HopButton.Parent = LocalFrame
-        HopButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-        HopButton.BackgroundTransparency = 0.3
-        HopButton.BorderColor3 = Color3.fromRGB(20, 20, 20)
-        HopButton.Position = UDim2.new(0.66, 0, 0.65, 0)
-        HopButton.Size = UDim2.new(0, 90, 0, 25)
-        HopButton.Font = Enum.Font.SourceSans
-        HopButton.Text = "Hop"
-        HopButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-        HopButton.TextSize = 12
-        HopButton.MouseButton1Click:Connect(function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Richard-Salvatore/Serverhop/main/Salvatore.lua"))():Teleport(game.PlaceId)
-        end)
-        local hopCorner = Instance.new("UICorner", HopButton); hopCorner.CornerRadius = UDim.new(0, 4)
-        local hopStroke = Instance.new("UIStroke", HopButton); hopStroke.Color = Color3.fromRGB(39, 39, 39); hopStroke.Thickness = 0.8; hopStroke.Transparency = 0.4
-
         task.spawn(function()
             local notifyShadow = Instance.new("ImageLabel")
             local notifyFrame = Instance.new("Frame")
@@ -793,86 +757,6 @@ function IceHub.CreateMain(gameName, subtitle)
                 }):Play()
             end
             usernameToggleState = not usernameToggleState
-        end)
-    end)
-    insideToggleCorner.CornerRadius = UDim.new(0, 5)
-    insideToggleCorner.Parent = InsideToggle
-    outsideToggleCorner.CornerRadius = UDim.new(0, 5)
-    outsideToggleCorner.Parent = OutsideToggle
-    TemplateToggle3.Name = "cToggle"
-    TemplateToggle3.Parent = SettingsPage
-    TemplateToggle3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    TemplateToggle3.BackgroundTransparency = 0.2
-    TemplateToggle3.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    TemplateToggle3.Position = UDim2.new(0.0656108633, 0, 0.339535713, 0)
-    TemplateToggle3.Size = UDim2.new(0, 295, 0, 30)
-    TemplateToggle3.AutoButtonColor = false
-    TemplateToggle3.Font = Enum.Font.Gotham
-    TemplateToggle3.Text = ""
-    TemplateToggle3.TextColor3 = Color3.fromRGB(255, 255, 255)
-    TemplateToggle3.TextSize = 12
-    TemplateToggle3.TextXAlignment = Enum.TextXAlignment.Left
-    templateToggle3Corner.CornerRadius = UDim.new(0, 4)
-    templateToggle3Corner.Parent = TemplateToggle3
-    templateToggle3Stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-    templateToggle3Stroke.Color = Color3.fromRGB(49, 49, 49)
-    templateToggle3Stroke.Transparency = 0.2
-    templateToggle3Stroke.Parent = TemplateToggle3
-    hideAvatarText.Name = "Text"
-    hideAvatarText.Parent = TemplateToggle3
-    hideAvatarText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    hideAvatarText.BackgroundTransparency = 1
-    hideAvatarText.Position = UDim2.new(0.125389799, 0, 0.150000006, 0)
-    hideAvatarText.Size = UDim2.new(0, 223, 0, 22)
-    hideAvatarText.Font = Enum.Font.Gotham
-    hideAvatarText.Text = "Hide Avatar Image"
-    hideAvatarText.TextColor3 = Color3.fromRGB(255, 255, 255)
-    hideAvatarText.TextSize = 13
-    hideAvatarText.TextXAlignment = Enum.TextXAlignment.Left
-    OutsideToggle2.Name = "OutsideToggle"
-    OutsideToggle2.Parent = TemplateToggle3
-    OutsideToggle2.AnchorPoint = Vector2.new(0, 0.5)
-    OutsideToggle2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    OutsideToggle2.BackgroundTransparency = 1
-    OutsideToggle2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    OutsideToggle2.BorderSizePixel = 0
-    OutsideToggle2.Position = UDim2.new(0.0289999992, 0, 0.5, 0)
-    OutsideToggle2.Size = UDim2.new(0, 16, 0, 16)
-    outsideToggle2Stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-    outsideToggle2Stroke.Color = Color3.fromRGB(49, 49, 49)
-    outsideToggle2Stroke.Thickness = 1.7
-    outsideToggle2Stroke.Parent = OutsideToggle2
-    InsideToggle2.Name = "InsideToggle"
-    InsideToggle2.Parent = OutsideToggle2
-    InsideToggle2.AnchorPoint = Vector2.new(0.5, 0.5)
-    InsideToggle2.BackgroundColor3 = Color3.fromRGB(77, 77, 77)
-    InsideToggle2.BackgroundTransparency = 1
-    InsideToggle2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    InsideToggle2.BorderSizePixel = 0
-    InsideToggle2.Position = UDim2.new(0.5, 0, 0.5, 0)
-    InsideToggle2.Size = UDim2.new(0, 12, 0, 12)
-    task.spawn(function()
-        local avatarToggleState = false
-        TemplateToggle3.MouseButton1Click:Connect(function()
-            if avatarHidden then
-                avatarHidden = false
-                task.spawn(function()
-                    PlayerImageLabel.Image = game.Players:GetUserThumbnailAsync(game.Players.LocalPlayer.UserId, Enum.ThumbnailType.AvatarBust, Enum.ThumbnailSize.Size420x420) or "rbxasset://textures/ui/GuiImagePlaceholder.png"
-                end)
-            else
-                PlayerImageLabel.Image = ""
-                avatarHidden = true
-            end
-            if avatarToggleState then
-                tweenService:Create(InsideToggle2, TweenInfo.new(0.2), {
-                    BackgroundTransparency = 1
-                }):Play()
-            else
-                tweenService:Create(InsideToggle2, TweenInfo.new(0.2), {
-                    BackgroundTransparency = 0
-                }):Play()
-            end
-            avatarToggleState = not avatarToggleState
         end)
     end)
     insideToggle2Corner.CornerRadius = UDim.new(0, 5)
