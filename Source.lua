@@ -1,5 +1,5 @@
 local IceHub = {}
-local config = loadstring(game:HttpGet("https://raw.githubusercontent.com/Richard-Mikaelson/UI-Library-Config/refs/heads/main/Source.lua"))()
+local config = loadstring(game:HttpGet("https://raw.githubusercontent.com/Richard-Salvatore/IceHub-UI-Library-Config/refs/heads/main/Source.lua"))()
 local gameMode = nil
 local isChristmas = config._event_connection._CHRISTMAS_CONNECTION._christmas
 local isHalloween = config._event_connection._HALLOWEEN_CONNECTION._halloween
@@ -303,10 +303,10 @@ function IceHub.CreateMain(gameName, subtitle)
     MenuPage.BorderColor3 = Color3.fromRGB(30, 30, 30)
     MenuPage.Position = UDim2.new(0.266000002, 0, 0.159999996, 0)
     MenuPage.Size = UDim2.new(0, 303, 0, 170)
-    MenuPage.CanvasSize = UDim2.new(0, 0, 0, MenuPage.UIListLayoutM1.AbsoluteContentSize.Y + 20)
+    MenuPage.CanvasSize = UDim2.new(0, 0, 2.9, 0)
     MenuPage.ScrollBarThickness = 0
     MenuPage.Visible = true
-    MenuPage.ScrollingEnabled = true
+    MenuPage.ScrollingEnabled = false
     MenuPage.ScrollingDirection = Enum.ScrollingDirection.Y
     table.insert(activePages, MenuPage)
     menuPageLayout.Parent = MenuPage
@@ -371,7 +371,7 @@ function IceHub.CreateMain(gameName, subtitle)
         }):Play()
         MenuPage.Visible = true
     end)
-     LocalFrame.Name = "LocalFrame"
+    LocalFrame.Name = "LocalFrame"
     LocalFrame.Parent = MenuPage
     LocalFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     LocalFrame.BackgroundTransparency = 0.5
@@ -581,49 +581,6 @@ function IceHub.CreateMain(gameName, subtitle)
     menuPagePadding.Parent = MenuPage
     menuPagePadding.PaddingLeft = UDim.new(0, 5)
     menuPagePadding.PaddingTop = UDim.new(0, 5)
-    local ButtonFrame = Instance.new("Frame")
-    ButtonFrame.Name = "ButtonFrame"
-    ButtonFrame.Parent = MenuPage
-    ButtonFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    ButtonFrame.BackgroundTransparency = 0.5
-    ButtonFrame.Size = UDim2.new(0, 285, 0, 45)
-    ButtonFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    local bfCorner = Instance.new("UICorner", ButtonFrame); bfCorner.CornerRadius = UDim.new(0, 4)
-    local bfStroke = Instance.new("UIStroke", ButtonFrame)
-    bfStroke.Color = Color3.fromRGB(39, 39, 39); bfStroke.Thickness = 0.8; bfStroke.Transparency = 0.4
-
-    local RejoinButton = Instance.new("TextButton", ButtonFrame)
-    RejoinButton.Size = UDim2.new(0, 135, 0, 30)
-    RejoinButton.Position = UDim2.new(0.025, 0, 0.15, 0)
-    RejoinButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    RejoinButton.Text = "Rejoin"
-    RejoinButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    RejoinButton.Font = Enum.Font.Gotham
-    RejoinButton.TextSize = 12
-    RejoinButton.AutoButtonColor = false
-    Instance.new("UICorner", RejoinButton).CornerRadius = UDim.new(0, 4)
-    local rjStroke = Instance.new("UIStroke", RejoinButton)
-    rjStroke.Color = Color3.fromRGB(49, 49, 49); rjStroke.Transparency = 0.2
-    RejoinButton.MouseButton1Click:Connect(function()
-        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
-    end)
-
-    local HopButton = Instance.new("TextButton", ButtonFrame)
-    HopButton.Size = UDim2.new(0, 135, 0, 30)
-    HopButton.Position = UDim2.new(0.505, 0, 0.15, 0)
-    HopButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    HopButton.Text = "Server-Hop"
-    HopButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    HopButton.Font = Enum.Font.Gotham
-    HopButton.TextSize = 12
-    HopButton.AutoButtonColor = false
-    Instance.new("UICorner", HopButton).CornerRadius = UDim.new(0, 4)
-    local hopStroke = Instance.new("UIStroke", HopButton)
-    hopStroke.Color = Color3.fromRGB(49, 49, 49); hopStroke.Transparency = 0.2
-    HopButton.MouseButton1Click:Connect(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Richard-Mikaelson/Server-Hop/refs/heads/main/Source.lua"))():Teleport(game.PlaceId)
-    end)
-    
     TutorialPage.Name = "TutorialPage"
     TutorialPage.Parent = FrameFolder
     TutorialPage.Active = true
@@ -800,6 +757,86 @@ function IceHub.CreateMain(gameName, subtitle)
                 }):Play()
             end
             usernameToggleState = not usernameToggleState
+        end)
+    end)
+    insideToggleCorner.CornerRadius = UDim.new(0, 5)
+    insideToggleCorner.Parent = InsideToggle
+    outsideToggleCorner.CornerRadius = UDim.new(0, 5)
+    outsideToggleCorner.Parent = OutsideToggle
+    TemplateToggle3.Name = "cToggle"
+    TemplateToggle3.Parent = SettingsPage
+    TemplateToggle3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    TemplateToggle3.BackgroundTransparency = 0.2
+    TemplateToggle3.BorderColor3 = Color3.fromRGB(20, 20, 20)
+    TemplateToggle3.Position = UDim2.new(0.0656108633, 0, 0.339535713, 0)
+    TemplateToggle3.Size = UDim2.new(0, 295, 0, 30)
+    TemplateToggle3.AutoButtonColor = false
+    TemplateToggle3.Font = Enum.Font.Gotham
+    TemplateToggle3.Text = ""
+    TemplateToggle3.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TemplateToggle3.TextSize = 12
+    TemplateToggle3.TextXAlignment = Enum.TextXAlignment.Left
+    templateToggle3Corner.CornerRadius = UDim.new(0, 4)
+    templateToggle3Corner.Parent = TemplateToggle3
+    templateToggle3Stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    templateToggle3Stroke.Color = Color3.fromRGB(49, 49, 49)
+    templateToggle3Stroke.Transparency = 0.2
+    templateToggle3Stroke.Parent = TemplateToggle3
+    hideAvatarText.Name = "Text"
+    hideAvatarText.Parent = TemplateToggle3
+    hideAvatarText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    hideAvatarText.BackgroundTransparency = 1
+    hideAvatarText.Position = UDim2.new(0.125389799, 0, 0.150000006, 0)
+    hideAvatarText.Size = UDim2.new(0, 223, 0, 22)
+    hideAvatarText.Font = Enum.Font.Gotham
+    hideAvatarText.Text = "Hide Avatar Image"
+    hideAvatarText.TextColor3 = Color3.fromRGB(255, 255, 255)
+    hideAvatarText.TextSize = 13
+    hideAvatarText.TextXAlignment = Enum.TextXAlignment.Left
+    OutsideToggle2.Name = "OutsideToggle"
+    OutsideToggle2.Parent = TemplateToggle3
+    OutsideToggle2.AnchorPoint = Vector2.new(0, 0.5)
+    OutsideToggle2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    OutsideToggle2.BackgroundTransparency = 1
+    OutsideToggle2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    OutsideToggle2.BorderSizePixel = 0
+    OutsideToggle2.Position = UDim2.new(0.0289999992, 0, 0.5, 0)
+    OutsideToggle2.Size = UDim2.new(0, 16, 0, 16)
+    outsideToggle2Stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    outsideToggle2Stroke.Color = Color3.fromRGB(49, 49, 49)
+    outsideToggle2Stroke.Thickness = 1.7
+    outsideToggle2Stroke.Parent = OutsideToggle2
+    InsideToggle2.Name = "InsideToggle"
+    InsideToggle2.Parent = OutsideToggle2
+    InsideToggle2.AnchorPoint = Vector2.new(0.5, 0.5)
+    InsideToggle2.BackgroundColor3 = Color3.fromRGB(77, 77, 77)
+    InsideToggle2.BackgroundTransparency = 1
+    InsideToggle2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    InsideToggle2.BorderSizePixel = 0
+    InsideToggle2.Position = UDim2.new(0.5, 0, 0.5, 0)
+    InsideToggle2.Size = UDim2.new(0, 12, 0, 12)
+    task.spawn(function()
+        local avatarToggleState = false
+        TemplateToggle3.MouseButton1Click:Connect(function()
+            if avatarHidden then
+                avatarHidden = false
+                task.spawn(function()
+                    PlayerImageLabel.Image = game.Players:GetUserThumbnailAsync(game.Players.LocalPlayer.UserId, Enum.ThumbnailType.AvatarBust, Enum.ThumbnailSize.Size420x420) or "rbxasset://textures/ui/GuiImagePlaceholder.png"
+                end)
+            else
+                PlayerImageLabel.Image = ""
+                avatarHidden = true
+            end
+            if avatarToggleState then
+                tweenService:Create(InsideToggle2, TweenInfo.new(0.2), {
+                    BackgroundTransparency = 1
+                }):Play()
+            else
+                tweenService:Create(InsideToggle2, TweenInfo.new(0.2), {
+                    BackgroundTransparency = 0
+                }):Play()
+            end
+            avatarToggleState = not avatarToggleState
         end)
     end)
     insideToggle2Corner.CornerRadius = UDim.new(0, 5)
@@ -1441,8 +1478,6 @@ function IceHub.CreateMain(gameName, subtitle)
                             local paragraphFrame = Instance.new("TextButton")
                             local paragraphCorner = Instance.new("UICorner")
                             local paragraphStroke = Instance.new("UIStroke")
-                            local paragraphPadding = Instance.new("UIPadding")
-                            local paragraphLayout = Instance.new("UIListLayout")
                             local titleLabel = Instance.new("TextLabel")
                             local contentLabel = Instance.new("TextLabel")
                             paragraphFrame.Name = "cParagraph"
@@ -1450,8 +1485,7 @@ function IceHub.CreateMain(gameName, subtitle)
                             paragraphFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
                             paragraphFrame.BackgroundTransparency = 0.2
                             paragraphFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
-                            paragraphFrame.Size = UDim2.new(0, 295, 0, 0) 
-                            paragraphFrame.AutomaticSize = Enum.AutomaticSize.Y 
+                            paragraphFrame.Size = UDim2.new(0, 295, 0, 65)
                             paragraphFrame.AutoButtonColor = false
                             paragraphFrame.Text = ""
                             paragraphCorner.CornerRadius = UDim.new(0, 4)
@@ -1460,31 +1494,23 @@ function IceHub.CreateMain(gameName, subtitle)
                             paragraphStroke.Color = Color3.fromRGB(49, 49, 49)
                             paragraphStroke.Transparency = 0.2
                             paragraphStroke.Parent = paragraphFrame
-                            paragraphPadding.PaddingLeft = UDim.new(0, 10)
-                            paragraphPadding.PaddingRight = UDim.new(0, 10)
-                            paragraphPadding.PaddingTop = UDim.new(0, 8)
-                            paragraphPadding.PaddingBottom = UDim.new(0, 8)
-                            paragraphPadding.Parent = paragraphFrame
-                            paragraphLayout.SortOrder = Enum.SortOrder.LayoutOrder
-                            paragraphLayout.Padding = UDim.new(0, 4) 
-                            paragraphLayout.Parent = paragraphFrame
                             titleLabel.Name = "Title"
                             titleLabel.Parent = paragraphFrame
                             titleLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                             titleLabel.BackgroundTransparency = 1
-                            titleLabel.Size = UDim2.new(1, 0, 0, 16) 
+                            titleLabel.Position = UDim2.new(0, 10, 0, 6)
+                            titleLabel.Size = UDim2.new(0, 275, 0, 15)
                             titleLabel.Font = Enum.Font.GothamBold
                             titleLabel.Text = titleText
                             titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
                             titleLabel.TextSize = 13
                             titleLabel.TextXAlignment = Enum.TextXAlignment.Left
-                            titleLabel.LayoutOrder = 1
                             contentLabel.Name = "Content"
                             contentLabel.Parent = paragraphFrame
                             contentLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                             contentLabel.BackgroundTransparency = 1
-                            contentLabel.Size = UDim2.new(1, 0, 0, 0) 
-                            contentLabel.AutomaticSize = Enum.AutomaticSize.Y 
+                            contentLabel.Position = UDim2.new(0, 10, 0, 24)
+                            contentLabel.Size = UDim2.new(0, 275, 0, 35)
                             contentLabel.Font = Enum.Font.Gotham
                             contentLabel.Text = contentText
                             contentLabel.TextColor3 = Color3.fromRGB(170, 170, 170)
@@ -1492,10 +1518,6 @@ function IceHub.CreateMain(gameName, subtitle)
                             contentLabel.TextWrapped = true
                             contentLabel.TextXAlignment = Enum.TextXAlignment.Left
                             contentLabel.TextYAlignment = Enum.TextYAlignment.Top
-                            contentLabel.LayoutOrder = 2
-                            paragraphFrame:GetPropertyChangedSignal("AbsoluteSize"):Connect(function()
-                                newTabPage.CanvasSize = UDim2.new(0, 0, 0, tabPageLayout.AbsoluteContentSize.Y + 5)
-                            end)
                             newTabPage.CanvasSize = UDim2.new(0, 0, 0, tabPageLayout.AbsoluteContentSize.Y + 5)
                         end,
 
