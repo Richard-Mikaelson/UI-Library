@@ -611,7 +611,7 @@ function IceHub.CreateMain(gameName, subtitle)
         tweenService:Create(RejoinButton, TweenInfo.new(0.15), {BackgroundTransparency = 0.2}):Play()
     end)
     RejoinButton.MouseButton1Click:Connect(function()
-        game:GetService("TeleportService"):Teleport(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
     end)
     ServerHopButton.Name = "ServerHop"
     ServerHopButton.Parent = ServerButtonsFrame
