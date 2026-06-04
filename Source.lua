@@ -377,7 +377,7 @@ function IceHub.CreateMain(gameName, subtitle)
     LocalFrame.BackgroundTransparency = 0.5
     LocalFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
     LocalFrame.Position = UDim2.new(0.5964026392, 0, 0.26649633, 0)
-    LocalFrame.Size = UDim2.new(0, 255, 0, 105)
+    LocalFrame.Size = UDim2.new(0, 270, 0, 115)
     localFrameCorner.CornerRadius = UDim.new(0, 4)
     localFrameCorner.Parent = LocalFrame
     PlayerImageLabel.Name = "PlayerImageLabel"
@@ -385,7 +385,7 @@ function IceHub.CreateMain(gameName, subtitle)
     PlayerImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     PlayerImageLabel.BackgroundTransparency = 1
     PlayerImageLabel.Position = UDim2.new(0.0419999994, 0, 0.0960000008, 0)
-    PlayerImageLabel.Size = UDim2.new(0, 80, 0, 80)
+    PlayerImageLabel.Size = UDim2.new(0, 90, 0, 90)
     if avatarHidden then
         task.spawn(function()
             PlayerImageLabel.Image = ""
@@ -408,7 +408,7 @@ function IceHub.CreateMain(gameName, subtitle)
     NameLabel.BackgroundTransparency = 0.3
     NameLabel.BorderColor3 = Color3.fromRGB(20, 20, 20)
     NameLabel.Position = UDim2.new(0.424561411, 0, 0.0960000008, 0)
-    NameLabel.Size = UDim2.new(0, 130, 0, 26)
+    NameLabel.Size = UDim2.new(0, 140, 0, 28)
     NameLabel.Font = Enum.Font.SourceSans
     if usernameHidden ~= false then
         if usernameHidden then
@@ -418,7 +418,7 @@ function IceHub.CreateMain(gameName, subtitle)
         NameLabel.Text = "Hey, " .. game.Players.LocalPlayer.DisplayName .. " !"
     end
     NameLabel.TextColor3 = labelColor
-    NameLabel.TextSize = 13
+    NameLabel.TextSize = 14
     nameLabelCorner.CornerRadius = UDim.new(0, 4)
     nameLabelCorner.Parent = NameLabel
     nameLabelStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
@@ -435,12 +435,12 @@ function IceHub.CreateMain(gameName, subtitle)
     Discord.BackgroundTransparency = 0.3
     Discord.BorderColor3 = Color3.fromRGB(20, 20, 20)
     Discord.Position = UDim2.new(0.424561381, 0, 0.375999987, 0)
-    Discord.Size = UDim2.new(0, 130, 0, 26)
+    Discord.Size = UDim2.new(0, 140, 0, 28)
     Discord.AutoButtonColor = false
     Discord.Font = Enum.Font.SourceSans
     Discord.Text = "Join Discord"
     Discord.TextColor3 = Color3.fromRGB(255, 255, 255)
-    Discord.TextSize = 13
+    Discord.TextSize = 14
     Discord.MouseButton1Click:Connect(function()
         spawn(function()
             HttpService = game:GetService("HttpService")
@@ -577,7 +577,7 @@ function IceHub.CreateMain(gameName, subtitle)
     ServerButtonsFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     ServerButtonsFrame.BackgroundTransparency = 0.5
     ServerButtonsFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    ServerButtonsFrame.Size = UDim2.new(0, 255, 0, 45)
+    ServerButtonsFrame.Size = UDim2.new(0, 270, 0, 48)
     ServerButtonsFrame.LayoutOrder = 0
     ServerButtonsCorner.CornerRadius = UDim.new(0, 4)
     ServerButtonsCorner.Parent = ServerButtonsFrame
@@ -589,8 +589,8 @@ function IceHub.CreateMain(gameName, subtitle)
     RejoinButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     RejoinButton.BackgroundTransparency = 0.2
     RejoinButton.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    RejoinButton.Position = UDim2.new(0, 8, 0, 8)
-    RejoinButton.Size = UDim2.new(0, 115, 0, 28)
+    RejoinButton.Position = UDim2.new(0, 8, 0, 9)
+    RejoinButton.Size = UDim2.new(0, 122, 0, 30)
     RejoinButton.AutoButtonColor = false
     RejoinButton.Font = Enum.Font.Gotham
     RejoinButton.Text = "Rejoin"
@@ -617,8 +617,8 @@ function IceHub.CreateMain(gameName, subtitle)
     ServerHopButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     ServerHopButton.BackgroundTransparency = 0.2
     ServerHopButton.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    ServerHopButton.Position = UDim2.new(0, 132, 0, 8)
-    ServerHopButton.Size = UDim2.new(0, 115, 0, 28)
+    ServerHopButton.Position = UDim2.new(0, 140, 0, 9)
+    ServerHopButton.Size = UDim2.new(0, 122, 0, 30)
     ServerHopButton.AutoButtonColor = false
     ServerHopButton.Font = Enum.Font.Gotham
     ServerHopButton.Text = "Server-Hop"
