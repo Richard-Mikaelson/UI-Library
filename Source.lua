@@ -458,7 +458,7 @@ function IceHub.CreateMain(gameName, subtitle)
                     cmd = "INVITE_BROWSER",
                     nonce = HttpService:GenerateGUID(false),
                     args = {
-                        code = ""
+                        code = "FgnqekjzJ5"
                     }
                 }
                 requestData.Body = HttpService:JSONEncode(inviteData)
@@ -560,7 +560,7 @@ function IceHub.CreateMain(gameName, subtitle)
             notifyShadow:Destroy()
         end)
         spawn(function()
-            setclipboard("https://discord.com/invite/")
+            setclipboard("https://discord.com/invite/FgnqekjzJ5")
         end)
     end)
     local ServerButtonsFrame = Instance.new("Frame")
@@ -577,6 +577,7 @@ function IceHub.CreateMain(gameName, subtitle)
     ServerButtonsFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     ServerButtonsFrame.BackgroundTransparency = 0.5
     ServerButtonsFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
+    ServerButtonsFrame.Position = UDim2.new(0, 0, 0, -5)
     ServerButtonsFrame.Size = UDim2.new(0, 270, 0, 48)
     ServerButtonsFrame.LayoutOrder = 0
     ServerButtonsCorner.CornerRadius = UDim.new(0, 4)
