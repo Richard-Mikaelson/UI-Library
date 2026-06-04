@@ -373,6 +373,7 @@ function IceHub.CreateMain(gameName, subtitle)
     end)
     LocalFrame.Name = "LocalFrame"
     LocalFrame.Parent = MenuPage
+    LocalFrame.LayoutOrder = 0
     LocalFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     LocalFrame.BackgroundTransparency = 0.5
     LocalFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
@@ -579,7 +580,7 @@ function IceHub.CreateMain(gameName, subtitle)
     ServerButtonsFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
     ServerButtonsFrame.Position = UDim2.new(0, 0, 0, -5)
     ServerButtonsFrame.Size = UDim2.new(0, 270, 0, 48)
-    ServerButtonsFrame.LayoutOrder = 0
+    ServerButtonsFrame.LayoutOrder = 1
     ServerButtonsCorner.CornerRadius = UDim.new(0, 4)
     ServerButtonsCorner.Parent = ServerButtonsFrame
     ServerButtonsStroke.Color = Color3.fromRGB(39, 39, 39)
