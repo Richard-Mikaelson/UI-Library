@@ -377,7 +377,7 @@ function IceHub.CreateMain(gameName, subtitle)
     LocalFrame.BackgroundTransparency = 0.5
     LocalFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
     LocalFrame.Position = UDim2.new(0.5964026392, 0, 0.26649633, 0)
-    LocalFrame.Size = UDim2.new(0, 285, 0, 125)
+    LocalFrame.Size = UDim2.new(0, 255, 0, 105)
     localFrameCorner.CornerRadius = UDim.new(0, 4)
     localFrameCorner.Parent = LocalFrame
     PlayerImageLabel.Name = "PlayerImageLabel"
@@ -385,7 +385,7 @@ function IceHub.CreateMain(gameName, subtitle)
     PlayerImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     PlayerImageLabel.BackgroundTransparency = 1
     PlayerImageLabel.Position = UDim2.new(0.0419999994, 0, 0.0960000008, 0)
-    PlayerImageLabel.Size = UDim2.new(0, 100, 0, 100)
+    PlayerImageLabel.Size = UDim2.new(0, 80, 0, 80)
     if avatarHidden then
         task.spawn(function()
             PlayerImageLabel.Image = ""
@@ -408,7 +408,7 @@ function IceHub.CreateMain(gameName, subtitle)
     NameLabel.BackgroundTransparency = 0.3
     NameLabel.BorderColor3 = Color3.fromRGB(20, 20, 20)
     NameLabel.Position = UDim2.new(0.424561411, 0, 0.0960000008, 0)
-    NameLabel.Size = UDim2.new(0, 155, 0, 30)
+    NameLabel.Size = UDim2.new(0, 130, 0, 26)
     NameLabel.Font = Enum.Font.SourceSans
     if usernameHidden ~= false then
         if usernameHidden then
@@ -418,7 +418,7 @@ function IceHub.CreateMain(gameName, subtitle)
         NameLabel.Text = "Hey, " .. game.Players.LocalPlayer.DisplayName .. " !"
     end
     NameLabel.TextColor3 = labelColor
-    NameLabel.TextSize = 14
+    NameLabel.TextSize = 13
     nameLabelCorner.CornerRadius = UDim.new(0, 4)
     nameLabelCorner.Parent = NameLabel
     nameLabelStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
@@ -435,12 +435,12 @@ function IceHub.CreateMain(gameName, subtitle)
     Discord.BackgroundTransparency = 0.3
     Discord.BorderColor3 = Color3.fromRGB(20, 20, 20)
     Discord.Position = UDim2.new(0.424561381, 0, 0.375999987, 0)
-    Discord.Size = UDim2.new(0, 155, 0, 30)
+    Discord.Size = UDim2.new(0, 130, 0, 26)
     Discord.AutoButtonColor = false
     Discord.Font = Enum.Font.SourceSans
     Discord.Text = "Join Discord"
     Discord.TextColor3 = Color3.fromRGB(255, 255, 255)
-    Discord.TextSize = 14
+    Discord.TextSize = 13
     Discord.MouseButton1Click:Connect(function()
         spawn(function()
             HttpService = game:GetService("HttpService")
@@ -572,44 +572,37 @@ function IceHub.CreateMain(gameName, subtitle)
     local ServerHopButton = Instance.new("TextButton")
     local ServerHopCorner = Instance.new("UICorner")
     local ServerHopStroke = Instance.new("UIStroke")
-    
     ServerButtonsFrame.Name = "ServerButtonsFrame"
     ServerButtonsFrame.Parent = MenuPage
     ServerButtonsFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     ServerButtonsFrame.BackgroundTransparency = 0.5
     ServerButtonsFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    ServerButtonsFrame.Size = UDim2.new(0, 285, 0, 50)
+    ServerButtonsFrame.Size = UDim2.new(0, 255, 0, 45)
     ServerButtonsFrame.LayoutOrder = 0
-    
     ServerButtonsCorner.CornerRadius = UDim.new(0, 4)
     ServerButtonsCorner.Parent = ServerButtonsFrame
-    
     ServerButtonsStroke.Color = Color3.fromRGB(39, 39, 39)
     ServerButtonsStroke.Thickness = 0.8
     ServerButtonsStroke.Parent = ServerButtonsFrame
-    
     RejoinButton.Name = "Rejoin"
     RejoinButton.Parent = ServerButtonsFrame
     RejoinButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     RejoinButton.BackgroundTransparency = 0.2
     RejoinButton.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    RejoinButton.Position = UDim2.new(0, 8, 0, 10)
-    RejoinButton.Size = UDim2.new(0, 130, 0, 30)
+    RejoinButton.Position = UDim2.new(0, 8, 0, 8)
+    RejoinButton.Size = UDim2.new(0, 115, 0, 28)
     RejoinButton.AutoButtonColor = false
     RejoinButton.Font = Enum.Font.Gotham
     RejoinButton.Text = "Rejoin"
     RejoinButton.TextColor3 = Color3.fromRGB(255, 255, 255)
     RejoinButton.TextSize = 13
-    
     RejoinCorner.CornerRadius = UDim.new(0, 4)
     RejoinCorner.Parent = RejoinButton
-    
     RejoinStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
     RejoinStroke.Color = Color3.fromRGB(49, 49, 49)
     RejoinStroke.Transparency = 0.2
     RejoinStroke.Thickness = 0.8
     RejoinStroke.Parent = RejoinButton
-    
     RejoinButton.MouseEnter:Connect(function()
         tweenService:Create(RejoinButton, TweenInfo.new(0.15), {BackgroundTransparency = 0.1}):Play()
     end)
@@ -619,29 +612,25 @@ function IceHub.CreateMain(gameName, subtitle)
     RejoinButton.MouseButton1Click:Connect(function()
         game:GetService("TeleportService"):Teleport(game.PlaceId, game.JobId, game.Players.LocalPlayer)
     end)
-    
     ServerHopButton.Name = "ServerHop"
     ServerHopButton.Parent = ServerButtonsFrame
     ServerHopButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     ServerHopButton.BackgroundTransparency = 0.2
     ServerHopButton.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    ServerHopButton.Position = UDim2.new(0, 147, 0, 10)
-    ServerHopButton.Size = UDim2.new(0, 130, 0, 30)
+    ServerHopButton.Position = UDim2.new(0, 132, 0, 8)
+    ServerHopButton.Size = UDim2.new(0, 115, 0, 28)
     ServerHopButton.AutoButtonColor = false
     ServerHopButton.Font = Enum.Font.Gotham
     ServerHopButton.Text = "Server-Hop"
     ServerHopButton.TextColor3 = Color3.fromRGB(255, 255, 255)
     ServerHopButton.TextSize = 13
-    
     ServerHopCorner.CornerRadius = UDim.new(0, 4)
     ServerHopCorner.Parent = ServerHopButton
-    
     ServerHopStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
     ServerHopStroke.Color = Color3.fromRGB(49, 49, 49)
     ServerHopStroke.Transparency = 0.2
     ServerHopStroke.Thickness = 0.8
     ServerHopStroke.Parent = ServerHopButton
-    
     ServerHopButton.MouseEnter:Connect(function()
         tweenService:Create(ServerHopButton, TweenInfo.new(0.15), {BackgroundTransparency = 0.1}):Play()
     end)
@@ -683,7 +672,6 @@ function IceHub.CreateMain(gameName, subtitle)
             end
         end)
     end)
-    
     menuPageLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
         MenuPage.CanvasSize = UDim2.new(0, 0, 0, menuPageLayout.AbsoluteContentSize.Y + 10)
     end)
