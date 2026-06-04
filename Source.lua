@@ -713,7 +713,7 @@ function IceHub.CreateMain(gameName, subtitle)
     menuPagePadding.Name = "UIPaddingM1"
     menuPagePadding.Parent = MenuPage
     menuPagePadding.PaddingLeft = UDim.new(0, 5)
-    menuPagePadding.PaddingTop = UDim.new(0, 5)
+    menuPagePadding.PaddingTop = UDim.new(0, 0)
     TutorialPage.Name = "TutorialPage"
     TutorialPage.Parent = FrameFolder
     TutorialPage.Active = true
