@@ -302,12 +302,12 @@ function IceHub.CreateMain(gameName, subtitle)
     MenuPage.BackgroundTransparency = 0.5
     MenuPage.BorderColor3 = Color3.fromRGB(30, 30, 30)
     MenuPage.Position = UDim2.new(0.266000002, 0, 0.159999996, 0)
-    MenuPage.Size = UDim2.new(0, 303, 0, 170)
-    MenuPage.CanvasSize = UDim2.new(0, 0, 2.9, 0)
+    MenuPage.Size = UDim2.new(0, 303, 0, 175)
+    MenuPage.CanvasSize = UDim2.new(0, 0, 0, 0)
     MenuPage.ScrollBarThickness = 0
-    MenuPage.Visible = true
-    MenuPage.ScrollingEnabled = true
+    MenuPage.ScrollingEnabled = false
     MenuPage.ScrollingDirection = Enum.ScrollingDirection.Y
+    MenuPage.Visible = true
     table.insert(activePages, MenuPage)
     menuPageLayout.Parent = MenuPage
     menuPageLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
