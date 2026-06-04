@@ -377,9 +377,10 @@ function IceHub.CreateMain(gameName, subtitle)
     LocalFrame.BackgroundTransparency = 0.5
     LocalFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
     LocalFrame.Position = UDim2.new(0.5964026392, 0, 0.26649633, 0)
-    LocalFrame.Size = UDim2.new(0, 285, 0, 125)
+    LocalFrame.Size = UDim2.new(0, 285, 0, 175)
     localFrameCorner.CornerRadius = UDim.new(0, 4)
     localFrameCorner.Parent = LocalFrame
+    
     PlayerImageLabel.Name = "PlayerImageLabel"
     PlayerImageLabel.Parent = LocalFrame
     PlayerImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -402,6 +403,7 @@ function IceHub.CreateMain(gameName, subtitle)
     playerImageStroke.Thickness = 0.8
     playerImageStroke.Transparency = 0.4
     playerImageStroke.Parent = PlayerImageLabel
+    
     NameLabel.Name = "NameLabel"
     NameLabel.Parent = LocalFrame
     NameLabel.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
@@ -426,45 +428,6 @@ function IceHub.CreateMain(gameName, subtitle)
     nameLabelStroke.Thickness = 0.8
     nameLabelStroke.Transparency = 0.4
     nameLabelStroke.Parent = NameLabel
-    Discord = Instance.new("TextButton")
-    discordCorner = Instance.new("UICorner")
-    discordStroke = Instance.new("UIStroke")
-    Discord.Name = "Discord"
-    Discord.Parent = LocalFrame
-    Discord.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    Discord.BackgroundTransparency = 0.3
-    Discord.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    Discord.Position = UDim2.new(0.424561381, 0, 0.375999987, 0)
-    Discord.Size = UDim2.new(0, 155, 0, 30)
-    Discord.AutoButtonColor = false
-    Discord.Font = Enum.Font.SourceSans
-    Discord.Text = "Join Discord"
-    Discord.TextColor3 = Color3.fromRGB(255, 255, 255)
-    Discord.TextSize = 14
-    Discord.MouseButton1Click:Connect(function()
-        spawn(function()
-            HttpService = game:GetService("HttpService")
-            local httpRequest = syn and syn.request or http and http.request or (http_request or fluxus and fluxus.request or request)
-            if httpRequest then
-                local requestData = {
-                    Url = "http://127.0.0.1:6463/rpc?v=1",
-                    Method = "POST",
-                    Headers = {
-                        ["Content-Type"] = "application/json",
-                        Origin = "https://discord.com"
-                    }
-                }
-                local inviteData = {
-                    cmd = "INVITE_BROWSER",
-                    nonce = HttpService:GenerateGUID(false),
-                    args = {
-                        code = ""
-                    }
-                }
-                requestData.Body = HttpService:JSONEncode(inviteData)
-                httpRequest(requestData)
-            end
-        end)
         task.spawn(function()
             local notifyShadow = Instance.new("ImageLabel")
             local notifyFrame = Instance.new("Frame")
@@ -563,9 +526,6 @@ function IceHub.CreateMain(gameName, subtitle)
             setclipboard("https://discord.com/invite/")
         end)
     end)
-    local ServerButtonsFrame = Instance.new("Frame")
-    local ServerButtonsCorner = Instance.new("UICorner")
-    local ServerButtonsStroke = Instance.new("UIStroke")
     local RejoinButton = Instance.new("TextButton")
     local RejoinCorner = Instance.new("UICorner")
     local RejoinStroke = Instance.new("UIStroke")
@@ -573,41 +533,26 @@ function IceHub.CreateMain(gameName, subtitle)
     local ServerHopCorner = Instance.new("UICorner")
     local ServerHopStroke = Instance.new("UIStroke")
     
-    ServerButtonsFrame.Name = "ServerButtonsFrame"
-    ServerButtonsFrame.Parent = MenuPage
-    ServerButtonsFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    ServerButtonsFrame.BackgroundTransparency = 0.5
-    ServerButtonsFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    ServerButtonsFrame.Size = UDim2.new(0, 285, 0, 50)
-    ServerButtonsFrame.LayoutOrder = 0
-    
-    ServerButtonsCorner.CornerRadius = UDim.new(0, 4)
-    ServerButtonsCorner.Parent = ServerButtonsFrame
-    
-    ServerButtonsStroke.Color = Color3.fromRGB(39, 39, 39)
-    ServerButtonsStroke.Thickness = 0.8
-    ServerButtonsStroke.Parent = ServerButtonsFrame
-    
     RejoinButton.Name = "Rejoin"
-    RejoinButton.Parent = ServerButtonsFrame
+    RejoinButton.Parent = LocalFrame
     RejoinButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     RejoinButton.BackgroundTransparency = 0.2
     RejoinButton.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    RejoinButton.Position = UDim2.new(0, 8, 0, 10)
-    RejoinButton.Size = UDim2.new(0, 130, 0, 30)
+    RejoinButton.Position = UDim2.new(0.424561381, 0, 0.375999987, 0)
+    RejoinButton.Size = UDim2.new(0, 155, 0, 30)
     RejoinButton.AutoButtonColor = false
-    RejoinButton.Font = Enum.Font.Gotham
+    RejoinButton.Font = Enum.Font.SourceSans
     RejoinButton.Text = "Rejoin"
     RejoinButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    RejoinButton.TextSize = 13
+    RejoinButton.TextSize = 14
     
     RejoinCorner.CornerRadius = UDim.new(0, 4)
     RejoinCorner.Parent = RejoinButton
     
     RejoinStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-    RejoinStroke.Color = Color3.fromRGB(49, 49, 49)
-    RejoinStroke.Transparency = 0.2
+    RejoinStroke.Color = Color3.fromRGB(39, 39, 39)
     RejoinStroke.Thickness = 0.8
+    RejoinStroke.Transparency = 0.4
     RejoinStroke.Parent = RejoinButton
     
     RejoinButton.MouseEnter:Connect(function()
@@ -621,25 +566,25 @@ function IceHub.CreateMain(gameName, subtitle)
     end)
     
     ServerHopButton.Name = "ServerHop"
-    ServerHopButton.Parent = ServerButtonsFrame
+    ServerHopButton.Parent = LocalFrame
     ServerHopButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     ServerHopButton.BackgroundTransparency = 0.2
     ServerHopButton.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    ServerHopButton.Position = UDim2.new(0, 147, 0, 10)
-    ServerHopButton.Size = UDim2.new(0, 130, 0, 30)
+    ServerHopButton.Position = UDim2.new(0.424561381, 0, 0.670000017, 0)
+    ServerHopButton.Size = UDim2.new(0, 155, 0, 30)
     ServerHopButton.AutoButtonColor = false
-    ServerHopButton.Font = Enum.Font.Gotham
+    ServerHopButton.Font = Enum.Font.SourceSans
     ServerHopButton.Text = "Server-Hop"
     ServerHopButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    ServerHopButton.TextSize = 13
+    ServerHopButton.TextSize = 14
     
     ServerHopCorner.CornerRadius = UDim.new(0, 4)
     ServerHopCorner.Parent = ServerHopButton
     
     ServerHopStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-    ServerHopStroke.Color = Color3.fromRGB(49, 49, 49)
-    ServerHopStroke.Transparency = 0.2
+    ServerHopStroke.Color = Color3.fromRGB(39, 39, 39)
     ServerHopStroke.Thickness = 0.8
+    ServerHopStroke.Transparency = 0.4
     ServerHopStroke.Parent = ServerHopButton
     
     ServerHopButton.MouseEnter:Connect(function()
@@ -684,20 +629,14 @@ function IceHub.CreateMain(gameName, subtitle)
         end)
     end)
     
+    localFrameStroke.Color = Color3.fromRGB(39, 39, 39)
+    localFrameStroke.Thickness = 0.8
+    localFrameStroke.Parent = LocalFrame
+    
     menuPageLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
         MenuPage.CanvasSize = UDim2.new(0, 0, 0, menuPageLayout.AbsoluteContentSize.Y + 10)
     end)
     MenuPage.CanvasSize = UDim2.new(0, 0, 0, menuPageLayout.AbsoluteContentSize.Y + 10)
-    discordCorner.CornerRadius = UDim.new(0, 4)
-    discordCorner.Parent = Discord
-    discordStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-    discordStroke.Color = Color3.fromRGB(39, 39, 39)
-    discordStroke.Thickness = 0.8
-    discordStroke.Transparency = 0.4
-    discordStroke.Parent = Discord
-    localFrameStroke.Color = Color3.fromRGB(39, 39, 39)
-    localFrameStroke.Thickness = 0.8
-    localFrameStroke.Parent = LocalFrame
     menuPageLayout.Name = "UIListLayoutM1"
     menuPageLayout.Parent = MenuPage
     menuPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
