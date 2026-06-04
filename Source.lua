@@ -373,12 +373,12 @@ function IceHub.CreateMain(gameName, subtitle)
     end)
     LocalFrame.Name = "LocalFrame"
     LocalFrame.Parent = MenuPage
-    LocalFrame.LayoutOrder = 0
     LocalFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     LocalFrame.BackgroundTransparency = 0.5
     LocalFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
     LocalFrame.Position = UDim2.new(0.5964026392, 0, 0.26649633, 0)
     LocalFrame.Size = UDim2.new(0, 270, 0, 115)
+    LocalFrame.LayoutOrder = 0
     localFrameCorner.CornerRadius = UDim.new(0, 4)
     localFrameCorner.Parent = LocalFrame
     PlayerImageLabel.Name = "PlayerImageLabel"
@@ -459,7 +459,7 @@ function IceHub.CreateMain(gameName, subtitle)
                     cmd = "INVITE_BROWSER",
                     nonce = HttpService:GenerateGUID(false),
                     args = {
-                        code = "FgnqekjzJ5"
+                        code = ""
                     }
                 }
                 requestData.Body = HttpService:JSONEncode(inviteData)
@@ -561,7 +561,7 @@ function IceHub.CreateMain(gameName, subtitle)
             notifyShadow:Destroy()
         end)
         spawn(function()
-            setclipboard("https://discord.com/invite/FgnqekjzJ5")
+            setclipboard("https://discord.com/invite/")
         end)
     end)
     local ServerButtonsFrame = Instance.new("Frame")
@@ -578,7 +578,6 @@ function IceHub.CreateMain(gameName, subtitle)
     ServerButtonsFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     ServerButtonsFrame.BackgroundTransparency = 0.5
     ServerButtonsFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    ServerButtonsFrame.Position = UDim2.new(0, 0, 0, -5)
     ServerButtonsFrame.Size = UDim2.new(0, 270, 0, 48)
     ServerButtonsFrame.LayoutOrder = 1
     ServerButtonsCorner.CornerRadius = UDim.new(0, 4)
@@ -674,6 +673,25 @@ function IceHub.CreateMain(gameName, subtitle)
             end
         end)
     end)
+    discordCorner.CornerRadius = UDim.new(0, 4)
+    discordCorner.Parent = Discord
+    discordStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    discordStroke.Color = Color3.fromRGB(39, 39, 39)
+    discordStroke.Thickness = 0.8
+    discordStroke.Transparency = 0.4
+    discordStroke.Parent = Discord
+    localFrameStroke.Color = Color3.fromRGB(39, 39, 39)
+    localFrameStroke.Thickness = 0.8
+    localFrameStroke.Parent = LocalFrame
+    menuPageLayout.Name = "UIListLayoutM1"
+    menuPageLayout.Parent = MenuPage
+    menuPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    menuPageLayout.Padding = UDim.new(0, 3)
+    menuPagePadding.Name = "UIPaddingM1"
+    menuPagePadding.Parent = MenuPage
+    menuPagePadding.PaddingLeft = UDim.new(0, 5)
+    menuPagePadding.PaddingTop = UDim.new(0, 5)
+    MenuPage.ScrollingEnabled = false
     menuPageLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
         MenuPage.CanvasSize = UDim2.new(0, 0, 0, menuPageLayout.AbsoluteContentSize.Y + 10)
     end)
