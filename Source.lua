@@ -371,7 +371,7 @@ function IceHub.CreateMain(gameName, subtitle)
         }):Play()
         MenuPage.Visible = true
     end)
-    LocalFrame.Name = "LocalFrame"
+   LocalFrame.Name = "LocalFrame"
     LocalFrame.Parent = MenuPage
     LocalFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     LocalFrame.BackgroundTransparency = 0.5
@@ -380,7 +380,6 @@ function IceHub.CreateMain(gameName, subtitle)
     LocalFrame.Size = UDim2.new(0, 285, 0, 175)
     localFrameCorner.CornerRadius = UDim.new(0, 4)
     localFrameCorner.Parent = LocalFrame
-    
     PlayerImageLabel.Name = "PlayerImageLabel"
     PlayerImageLabel.Parent = LocalFrame
     PlayerImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -403,7 +402,6 @@ function IceHub.CreateMain(gameName, subtitle)
     playerImageStroke.Thickness = 0.8
     playerImageStroke.Transparency = 0.4
     playerImageStroke.Parent = PlayerImageLabel
-    
     NameLabel.Name = "NameLabel"
     NameLabel.Parent = LocalFrame
     NameLabel.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
@@ -428,111 +426,12 @@ function IceHub.CreateMain(gameName, subtitle)
     nameLabelStroke.Thickness = 0.8
     nameLabelStroke.Transparency = 0.4
     nameLabelStroke.Parent = NameLabel
-        task.spawn(function()
-            local notifyShadow = Instance.new("ImageLabel")
-            local notifyFrame = Instance.new("Frame")
-            local notifyFrameCorner = Instance.new("UICorner")
-            local notifyText = Instance.new("TextLabel")
-            local timerBar = Instance.new("Frame")
-            local timerBarCorner = Instance.new("UICorner")
-            local patternImage = Instance.new("ImageLabel")
-            local notifyStroke = Instance.new("UIStroke")
-            local belowTimerBar = Instance.new("Frame")
-            local belowTimerBarCorner = Instance.new("UICorner")
-            notifyShadow.Name = "NotifyShadow"
-            notifyShadow.Parent = NotifyFolder
-            notifyShadow.AnchorPoint = Vector2.new(1, 1)
-            notifyShadow.BackgroundTransparency = 1
-            notifyShadow.BorderSizePixel = 0
-            notifyShadow.Position = UDim2.new(3, 0, 1, 0)
-            notifyShadow.Size = UDim2.new(0, 278, 0, 123)
-            notifyShadow.ZIndex = -3
-            notifyShadow.Image = "rbxassetid://6014261993"
-            notifyShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
-            notifyShadow.ImageTransparency = 0.5
-            notifyShadow.ScaleType = Enum.ScaleType.Slice
-            notifyShadow.SliceCenter = Rect.new(49, 49, 450, 450)
-            notifyFrame.Name = "Notify"
-            notifyFrame.Parent = notifyShadow
-            notifyFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-            notifyFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-            notifyFrame.BackgroundTransparency = 0.15
-            notifyFrame.BorderColor3 = Color3.fromRGB(25, 25, 25)
-            notifyFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-            notifyFrame.Size = UDim2.new(0, 225, 0, 75)
-            notifyFrameCorner.CornerRadius = UDim.new(0, 4)
-            notifyFrameCorner.Parent = notifyFrame
-            notifyText.Name = "NotifyText"
-            notifyText.Parent = notifyFrame
-            notifyText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            notifyText.BackgroundTransparency = 1
-            notifyText.Position = UDim2.new(0.0622222237, 0, 0.106666669, 0)
-            notifyText.Size = UDim2.new(0, 196, 0, 57)
-            notifyText.Font = Enum.Font.Gotham
-            notifyText.Text = "Discord Server link has been copied to clipboard"
-            notifyText.TextColor3 = Color3.fromRGB(255, 255, 255)
-            notifyText.TextSize = 15
-            notifyText.TextWrapped = true
-            notifyText.TextXAlignment = Enum.TextXAlignment.Left
-            notifyText.TextYAlignment = Enum.TextYAlignment.Top
-            timerBar.Name = "TimerBar"
-            timerBar.Parent = notifyFrame
-            timerBar.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
-            timerBar.BorderColor3 = Color3.fromRGB(0, 203, 203)
-            timerBar.Position = UDim2.new(0.014, 0, 0.906666696, 0)
-            timerBar.Size = UDim2.new(0, 219, 0, 4)
-            timerBar.ZIndex = 2
-            timerBarCorner.Parent = timerBar
-            patternImage.Name = "Pattern"
-            patternImage.Parent = notifyFrame
-            patternImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            patternImage.BackgroundTransparency = 1
-            patternImage.Size = UDim2.new(0, 224, 0, 72)
-            patternImage.ZIndex = -1
-            patternImage.Image = "rbxassetid://2151741365"
-            patternImage.ImageTransparency = 0.8
-            patternImage.ScaleType = Enum.ScaleType.Tile
-            patternImage.SliceCenter = Rect.new(0, 256, 0, 256)
-            patternImage.TileSize = UDim2.new(0, 250, 0, 250)
-            notifyStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-            notifyStroke.Color = Color3.fromRGB(62, 62, 62)
-            notifyStroke.Transparency = 0.2
-            notifyStroke.Parent = notifyFrame
-            belowTimerBar.Name = "BelowTimeBar"
-            belowTimerBar.Parent = notifyFrame
-            belowTimerBar.BackgroundColor3 = Color3.fromRGB(67, 67, 67)
-            belowTimerBar.BorderColor3 = Color3.fromRGB(67, 67, 67)
-            belowTimerBar.AnchorPoint = Vector2.new(0.5, 0)
-            belowTimerBar.Position = UDim2.new(0.5, 0, 0.906666696, 0)
-            belowTimerBar.Size = UDim2.new(0, 219, 0, 4)
-            belowTimerBarCorner.CornerRadius = UDim.new(0, 4)
-            belowTimerBarCorner.Parent = belowTimerBar
-            tweenService:Create(notifyShadow, TweenInfo.new(0.5), {
-                Position = UDim2.new(1, 0, 1, 0)
-            }):Play()
-            tweenService:Create(timerBar, TweenInfo.new(tonumber(4), Enum.EasingStyle.Linear), {
-                Size = UDim2.new(0, 0, 0, 4)
-            }):Play()
-            task.wait(tonumber(4) - 0.1)
-            timerBar:Destroy()
-            task.wait(0.09)
-            tweenService:Create(notifyShadow, TweenInfo.new(0.5), {
-                Position = UDim2.new(2, 0, 1, 0)
-            }):Play()
-            wait(0.6)
-            notifyShadow:Destroy()
-        end)
-        spawn(function()
-            setclipboard("https://discord.com/invite/")
-        end)
-    end)
     local RejoinButton = Instance.new("TextButton")
     local RejoinCorner = Instance.new("UICorner")
     local RejoinStroke = Instance.new("UIStroke")
     local ServerHopButton = Instance.new("TextButton")
     local ServerHopCorner = Instance.new("UICorner")
     local ServerHopStroke = Instance.new("UIStroke")
-    
     RejoinButton.Name = "Rejoin"
     RejoinButton.Parent = LocalFrame
     RejoinButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
@@ -545,16 +444,13 @@ function IceHub.CreateMain(gameName, subtitle)
     RejoinButton.Text = "Rejoin"
     RejoinButton.TextColor3 = Color3.fromRGB(255, 255, 255)
     RejoinButton.TextSize = 14
-    
     RejoinCorner.CornerRadius = UDim.new(0, 4)
     RejoinCorner.Parent = RejoinButton
-    
     RejoinStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
     RejoinStroke.Color = Color3.fromRGB(39, 39, 39)
     RejoinStroke.Thickness = 0.8
     RejoinStroke.Transparency = 0.4
     RejoinStroke.Parent = RejoinButton
-    
     RejoinButton.MouseEnter:Connect(function()
         tweenService:Create(RejoinButton, TweenInfo.new(0.15), {BackgroundTransparency = 0.1}):Play()
     end)
@@ -564,7 +460,6 @@ function IceHub.CreateMain(gameName, subtitle)
     RejoinButton.MouseButton1Click:Connect(function()
         game:GetService("TeleportService"):Teleport(game.PlaceId, game.JobId, game.Players.LocalPlayer)
     end)
-    
     ServerHopButton.Name = "ServerHop"
     ServerHopButton.Parent = LocalFrame
     ServerHopButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
@@ -577,16 +472,13 @@ function IceHub.CreateMain(gameName, subtitle)
     ServerHopButton.Text = "Server-Hop"
     ServerHopButton.TextColor3 = Color3.fromRGB(255, 255, 255)
     ServerHopButton.TextSize = 14
-    
     ServerHopCorner.CornerRadius = UDim.new(0, 4)
     ServerHopCorner.Parent = ServerHopButton
-    
     ServerHopStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
     ServerHopStroke.Color = Color3.fromRGB(39, 39, 39)
     ServerHopStroke.Thickness = 0.8
     ServerHopStroke.Transparency = 0.4
     ServerHopStroke.Parent = ServerHopButton
-    
     ServerHopButton.MouseEnter:Connect(function()
         tweenService:Create(ServerHopButton, TweenInfo.new(0.15), {BackgroundTransparency = 0.1}):Play()
     end)
@@ -628,15 +520,13 @@ function IceHub.CreateMain(gameName, subtitle)
             end
         end)
     end)
-    
-    localFrameStroke.Color = Color3.fromRGB(39, 39, 39)
-    localFrameStroke.Thickness = 0.8
-    localFrameStroke.Parent = LocalFrame
-    
     menuPageLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
         MenuPage.CanvasSize = UDim2.new(0, 0, 0, menuPageLayout.AbsoluteContentSize.Y + 10)
     end)
     MenuPage.CanvasSize = UDim2.new(0, 0, 0, menuPageLayout.AbsoluteContentSize.Y + 10)
+    localFrameStroke.Color = Color3.fromRGB(39, 39, 39)
+    localFrameStroke.Thickness = 0.8
+    localFrameStroke.Parent = LocalFrame
     menuPageLayout.Name = "UIListLayoutM1"
     menuPageLayout.Parent = MenuPage
     menuPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
