@@ -371,7 +371,7 @@ function IceHub.CreateMain(gameName, subtitle)
         }):Play()
         MenuPage.Visible = true
     end)
-   LocalFrame.Name = "LocalFrame"
+    LocalFrame.Name = "LocalFrame"
     LocalFrame.Parent = MenuPage
     LocalFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     LocalFrame.BackgroundTransparency = 0.5
@@ -384,7 +384,7 @@ function IceHub.CreateMain(gameName, subtitle)
     PlayerImageLabel.Parent = LocalFrame
     PlayerImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     PlayerImageLabel.BackgroundTransparency = 1
-    PlayerImageLabel.Position = UDim2.new(0.0419999994, 0, 0.0960000008, 0)
+    PlayerImageLabel.Position = UDim2.new(0.0419999994, 0, 0.2, 0)
     PlayerImageLabel.Size = UDim2.new(0, 100, 0, 100)
     if avatarHidden then
         task.spawn(function()
@@ -407,7 +407,7 @@ function IceHub.CreateMain(gameName, subtitle)
     NameLabel.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     NameLabel.BackgroundTransparency = 0.3
     NameLabel.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    NameLabel.Position = UDim2.new(0.424561411, 0, 0.0960000008, 0)
+    NameLabel.Position = UDim2.new(0.424561411, 0, 0.0560000008, 0)
     NameLabel.Size = UDim2.new(0, 155, 0, 30)
     NameLabel.Font = Enum.Font.SourceSans
     if usernameHidden ~= false then
@@ -437,7 +437,7 @@ function IceHub.CreateMain(gameName, subtitle)
     RejoinButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     RejoinButton.BackgroundTransparency = 0.2
     RejoinButton.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    RejoinButton.Position = UDim2.new(0.424561381, 0, 0.375999987, 0)
+    RejoinButton.Position = UDim2.new(0.424561381, 0, 0.28, 0)
     RejoinButton.Size = UDim2.new(0, 155, 0, 30)
     RejoinButton.AutoButtonColor = false
     RejoinButton.Font = Enum.Font.SourceSans
@@ -465,7 +465,7 @@ function IceHub.CreateMain(gameName, subtitle)
     ServerHopButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
     ServerHopButton.BackgroundTransparency = 0.2
     ServerHopButton.BorderColor3 = Color3.fromRGB(20, 20, 20)
-    ServerHopButton.Position = UDim2.new(0.424561381, 0, 0.670000017, 0)
+    ServerHopButton.Position = UDim2.new(0.424561381, 0, 0.57, 0)
     ServerHopButton.Size = UDim2.new(0, 155, 0, 30)
     ServerHopButton.AutoButtonColor = false
     ServerHopButton.Font = Enum.Font.SourceSans
