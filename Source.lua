@@ -579,6 +579,7 @@ function IceHub.CreateMain(gameName, subtitle)
     ServerButtonsFrame.BackgroundTransparency = 0.5
     ServerButtonsFrame.BorderColor3 = Color3.fromRGB(20, 20, 20)
     ServerButtonsFrame.Size = UDim2.new(0, 270, 0, 48)
+    ServerButtonsFrame.Position = UDim2.new(0, 0, 0, -8)
     ServerButtonsFrame.LayoutOrder = 1
     ServerButtonsCorner.CornerRadius = UDim.new(0, 4)
     ServerButtonsCorner.Parent = ServerButtonsFrame
