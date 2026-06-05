@@ -459,7 +459,7 @@ function IceHub.CreateMain(gameName, subtitle)
                     cmd = "INVITE_BROWSER",
                     nonce = HttpService:GenerateGUID(false),
                     args = {
-                        code = ""
+                        code = "FgnqekjzJ5"
                     }
                 }
                 requestData.Body = HttpService:JSONEncode(inviteData)
@@ -561,7 +561,7 @@ function IceHub.CreateMain(gameName, subtitle)
             notifyShadow:Destroy()
         end)
         spawn(function()
-            setclipboard("https://discord.com/invite/")
+            setclipboard("https://discord.com/invite/FgnqekjzJ5")
         end)
     end)
     local ServerButtonsFrame = Instance.new("Frame")
