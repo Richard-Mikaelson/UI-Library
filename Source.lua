@@ -312,7 +312,7 @@ function IceHub.CreateMain(gameName, subtitle)
     menuPageLayout.Parent = MenuPage
     menuPageLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
     menuPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
-    menuPageLayout.Padding = UDim.new(0, 5)
+    menuPageLayout.Padding = UDim.new(0, 3)
     local menuButton = Instance.new("TextButton")
     local menuButtonCorner = Instance.new("UICorner")
     local menuButtonStroke = Instance.new("UIStroke")
