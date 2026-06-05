@@ -690,7 +690,7 @@ function IceHub.CreateMain(gameName, subtitle)
     menuPagePadding.Name = "UIPaddingM1"
     menuPagePadding.Parent = MenuPage
     menuPagePadding.PaddingLeft = UDim.new(0, 5)
-    menuPagePadding.PaddingTop = UDim.new(0, 5)
+    menuPagePadding.PaddingTop = UDim.new(0, 2)
     MenuPage.ScrollingEnabled = false
     menuPageLayout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
         MenuPage.CanvasSize = UDim2.new(0, 0, 0, menuPageLayout.AbsoluteContentSize.Y + 10)
